@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Logo from '../assets/Logo.png';
 import { useNavigate } from 'react-router-dom';
 import {useState} from 'react'
+import axios from "axios"
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -88,10 +89,11 @@ const LoginTitle = styled.div`
 
 
 const InputBox = styled.div`
-  margin-top: 50px;
-  text-align: center;
+  display: flex;
+  flex-direction: column; /* 세로로 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  margin-top: 20px; /* 요소 간 간격 조절 */
 `;
-
 const InputId = styled.input`
   width: 70%;
   padding: 10px;
@@ -125,9 +127,9 @@ const InputPw = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  width: 77%;
+  width: 76%; /* 입력란과 동일한 너비 설정 */
   padding: 10px;
-  border: 1px solid #0BC1C1 ;
+  border: 1px solid #0BC1C1;
   border-radius: 15px;
   outline: none;
   color: #0BC1C1;
@@ -138,7 +140,7 @@ const SubmitButton = styled.button`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-top: 30px;
+  margin-top: 20px; /* 입력란과 동일한 간격 설정 */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
@@ -172,32 +174,33 @@ const LoginSubtitle = styled.div`
 }`;
 
 const SelectBox = styled.div`
-position: relative;
-font-family: Ubuntu;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-boder-bottom:1px solid black;
-width: 70%;
-padding: 10px;
-border-radius: 15px;
-background-color: #ffffff;
-align-self: center;
-border:1px solid black;
-cursor: pointer;
-margin-top:10px;
-margin-left:43px;
-&::before {
-  content: "⌵ 찾기";
-  position: absolute;
-  top: 1px;
-  right: 8px;
-  margin:10px;
-  color: #0BC1C1;
-  font-size: 13px;
-}
+  position: relative;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-bottom: 1px solid black;
+  width: 70%;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  align-self: center;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center; /* 중앙 정렬 추가 */
+  &::before {
+    content: "⌵ 찾기";
+    position: absolute;
+    top: 1px;
+    right: 8px;
+    margin: 10px;
+    color: #0BC1C1;
+    font-size: 13px;
+  }
 `;
+
 const Label = styled.label`
   color: #767676;
   text-align: center;
@@ -244,9 +247,9 @@ const LoginLogo = styled.img`
   width: 35px;
   `;
 
-  const InputContainer = styled.div`
-  display: flex;
-  align-items: left; /* 수직 가운데 정렬 */
-  margin-bottom:50px;
-  margin-top:5px;
+const InputContainer = styled.div`
+display: flex;
+align-items: left; /* 수직 가운데 정렬 */
+margin-bottom:50px;
+margin-top:5px;
 `;
