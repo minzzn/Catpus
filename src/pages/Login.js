@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CatLogo from '../assets/CatLogo.png';
+import LogoCat from '../assets/LogoCat.png';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
     <LoginBox>
       <Section>
         <LoginTitle>Catpus</LoginTitle>
-        <LoginLogo src={CatLogo} alt="로고" />
+        <LoginLogo src={LogoCat} alt="로고" />
         <InputBox>
           <InputId
             type="email"
@@ -61,7 +61,7 @@ const Section = styled.section`
 const LoginTitle = styled.div`
   color: #0BC1C1;
   font-family: Inter;
-  font-size: 32px;
+  font-size: 60px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
