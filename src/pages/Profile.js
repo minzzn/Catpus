@@ -18,29 +18,27 @@ const Header = styled.div`
   line-height: normal;
   padding: 15px;
   text-align: center;
-  
 `;
 
 const PreviousButton = styled.img`
   float: left;
- margin-right: -100px;
+  margin-right: -100px;
 `;
-
-
 
 function Profile() {
   const navigate = useNavigate();
 
+
   return (
     <MobileSize>
-       <Header>
+      <Header>
         <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/main')} />
         프로필
       </Header>
       <ProfileBox />
       <CatEatting />
-        <CatComment style={{}} />
-      <CatpusButton/>
+      <CatComment style={{}} />
+      <CatpusButton /> {/* 버튼에 클릭 이벤트 핸들러 추가 */}
     </MobileSize>
   );
 }

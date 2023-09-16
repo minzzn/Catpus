@@ -74,7 +74,7 @@ const CloseButton = styled.button`
 `;
 
 function PetForm() {
-  const [formData, setFormData] = useState({
+    const [profileData, setProfileData] = useState({
     gender: '',
     characteristics: '',
     personality: '',
@@ -91,13 +91,13 @@ function PetForm() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const inputValue = type === 'checkbox' ? checked : value;
-    setFormData({ ...formData, [name]: inputValue });
+    setProfileData({ ...profileData, [name]: inputValue });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://your-server-endpoint.com/api/pets', formData);
+      await axios.post('http://your-server-endpoint.com/api/pets', profileData);
       alert('데이터가 성공적으로 전송되었습니다.');
     } catch (error) {
       console.error('데이터 전송 중 오류 발생:', error);
@@ -113,20 +113,21 @@ function PetForm() {
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Label>성별:</Label>
-          <Input type="text" name="gender" value={formData.gender} onChange={handleChange} />
+          <Input type="text" name="gender" value={profileData.gender} onChange={handleChange} />
         </FormGroup>
         <FormGroup>
           <Label>특징:</Label>
-          <Input type="text" name="characteristics" value={formData.characteristics} onChange={handleChange} />
+          <Input type="text" name="characteristics" value={profileData.characteristics} onChange={handleChange} />
         </FormGroup>
         <FormGroup>
           <Label>성격:</Label>
-          <Input type="text" name="personality" value={formData.personality} onChange={handleChange} />
+          <Input type="text" name="personality" value={profileData.personality} onChange={handleChange} />
         </FormGroup>
         <FormGroup>
           <CheckboxLabel>
-            <Checkbox type="checkbox" name="neutered" checked={formData.neutered} onChange={handleChange} />
-            중성화 여부:
+          중성화 여부:
+            <Checkbox type="checkbox" name="neutered" checked={profileData.neutered} onChange={handleChange} />
+           
           </CheckboxLabel>
         </FormGroup>
         <SubmitButton type="submit">전송</SubmitButton>
