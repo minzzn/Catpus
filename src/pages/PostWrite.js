@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import left from "../assets/left.png";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import image from "../assets/image.png"
+import MobileSize from '../main_layout/main_layout';
 
 const PostWrite = () => {
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState(null); // 이미지 파일을 저장할 상태
+  const [previewImage, setPreviewImage] = useState(null); // 미리 보기 이미지를 저장할 상태
 
   const handleWriteButtonClick = () => {
     // 작성하기 버튼을 클릭하면 PostWrite 페이지로 이동
@@ -27,13 +29,37 @@ const PostWrite = () => {
     setTitle(event.target.value);
   };
 
+  const handleImageClick = () => {
+    // 이미지를 클릭하면 파일 선택 다이얼로그 열기
+    const inputElement = document.createElement('input');
+    inputElement.type = 'file';
+    inputElement.accept = 'image/*';
+    inputElement.addEventListener('change', (e) => {
+      const selectedImage = e.target.files[0];
+
+      // 이미지를 상태에 저장
+      setImage(selectedImage);
+
+      // 미리 보기 이미지 생성
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setPreviewImage(e.target.result);
+      };
+      reader.readAsDataURL(selectedImage);
+    });
+
+    // 파일 선택 다이얼로그 열기
+    inputElement.click();
+  };
 
   return (
     <ReadPostBox>
+     <div>
       <Header>
         <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/main')} />
         글쓰기
       </Header>
+     
       <PostContainer>
         <TitleInput
           type="text"
@@ -42,9 +68,18 @@ const PostWrite = () => {
           placeholder="제목을 입력하세요"
         />
         <Content>
-          <Picture src={image} alt="사진 모양" />
+          <img
+            src="image.png"
+            alt="imagepick"
+            style={{
+              width: "20px",
+              height: "20px",
+              cursor: "pointer",
+            }}
+            onClick={handleImageClick}
+          />
           <PostOption>
-            <OptionButton
+          <OptionButton
               onClick={() => handleOptionButtonClick('치즈냥')}
               style={{
                 backgroundColor: selectedOption === '치즈냥' ? 'rgba(11, 193, 193, 0.50)' : 'white',
@@ -78,15 +113,19 @@ const PostWrite = () => {
             </OptionButton>
           </PostOption>
         </Content>
+        
+        {previewImage && <img src={previewImage} alt="Preview" width="100%" height="300px" />}
         <ContentInput
           value={content}
           onChange={handleContentChange}
           placeholder="내용을 입력하세요"
         />
+        </PostContainer>
+        </div>
         <Footer>
-            <CenteredButton onClick={() => navigate('/readpost')}>작성하기</CenteredButton>
+          <CenteredButton style={{marginBottom:30}} onClick={() => navigate('/readpost')}>작성하기</CenteredButton>
         </Footer>
-      </PostContainer>
+     
     </ReadPostBox>
   );
 };
@@ -94,6 +133,13 @@ const PostWrite = () => {
 export default PostWrite;
 
 const ReadPostBox = styled.div`
+
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ height: 100vh;
+
+
   @media only screen and (min-width: 430px) {
     width: 365px;
     margin: auto;
@@ -104,7 +150,6 @@ const ReadPostBox = styled.div`
     margin: auto;
   }
 
-  border: 1px solid #A4A4A4;
 `;
 
 const Header = styled.div`
@@ -116,16 +161,19 @@ const Header = styled.div`
   font-weight: 400;
   line-height: normal;
   padding: 15px;
-  border-bottom: 1px solid #A4A4A4;
+  text-align: center;
+  
+`;
+
+const PreviousButton = styled.img`
+  float: left;
+ margin-right: -100px;
 `;
 
 const PostContainer = styled.div`
   padding: 15px;
 `;
 
-const PreviousButton = styled.img`
-  float: left;
-`;
 
 const TitleInput = styled.input`
   color: #A4A4A4;
@@ -177,7 +225,7 @@ const ContentInput = styled.textarea`
 const Footer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 330px; /* Adjust this value as needed */
+ 
 `;
 
 const CenteredButton = styled.button`

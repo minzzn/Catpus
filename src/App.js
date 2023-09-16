@@ -9,7 +9,7 @@ import PostList from "./pages/board_pages/PostList";
 import ReadPost from "./pages/ReadPost";
 import PostWrite from "./pages/PostWrite";
 import ProfileImgClick from "./pages/ProfileImgClick";
-
+import ProfileEdit from "./pages/ProfileEdit"
 
 
 const App = () =>{
@@ -25,6 +25,8 @@ const App = () =>{
       <Route path='/SignUp' element={<SignUp />}></Route>
       <Route path='/Profile' element={<Profile/>}></Route>
       <Route path='/ProfileImgClick' element={<ProfileImgClick/>}></Route>
+      <Route path='/ProfileEdit' element={<ProfileEdit/>}></Route>
+
 
     </Routes>
     </BrowserRouter>

@@ -35,7 +35,7 @@ function Profile() {
     <MobileSize>
        <Header>
         <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/main')} />
-        글쓰기
+        프로필
       </Header>
       <ProfileBox />
       <CatEatting />

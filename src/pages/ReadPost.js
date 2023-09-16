@@ -6,6 +6,7 @@ import more from "../assets/more.png"; // more 이미지 import
 import heart from "../assets/heart.png";
 import circle from "../assets/circle.png"
 import Coment from "../components/Coment";
+import MobileSize from '../main_layout/main_layout';
 
 
 const ReadPost = () => {
@@ -19,12 +20,12 @@ const ReadPost = () => {
   };
 
   return (
-    <ReadPostBox>
+    <MobileSize style={{justifyContent:'space-between'}}>
       <Header>
         <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/postwrite')} />
         집사 수첩
       </Header>
-      <PostTitleContainer>
+      <PostTitleContainer style={{marginTop:-150}}>
         <PostTitle>
           제목
         </PostTitle>
@@ -39,7 +40,7 @@ const ReadPost = () => {
           </DropdownContent>
         )}
       </PostTitleContainer>
-      <UserName>
+      <UserName style={{marginTop:-200}}>
         사용자 이름
       </UserName>
       <PostContainer>
@@ -56,30 +57,12 @@ const ReadPost = () => {
         </Detail>
       </PostContainer>
       <Coment/>
-    </ReadPostBox>
+    </MobileSize>
   );
 };
  
 export default ReadPost;
 
-const ReadPostBox = styled.div`
-  @media only screen and (min-width: 430px) {
-    width: 365px;
-    margin: auto;
-  }
-
-  @media only screen and (max-width: 430px) {
-    max-width: auto;
-    margin: auto;
-  }
-
-  border: 1px solid #A4A4A4;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-
-`;
 
 
 const Header = styled.div`
