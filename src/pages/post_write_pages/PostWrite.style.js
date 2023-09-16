@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const ReadPostBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
   @media only screen and (min-width: 430px) {
     width: 365px;
     margin: auto;
@@ -10,12 +15,6 @@ export const ReadPostBox = styled.div`
     max-width: auto;
     margin: auto;
   }
-
-  border: 1px solid #a4a4a4;
-`;
-
-export const PostContainer = styled.div`
-  padding: 15px;
 `;
 
 export const TitleInput = styled.input`

@@ -1,30 +1,25 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const images = [
-  'https://via.placeholder.com/400x300?text=Image+1', // 임의의 이미지 URL
-  'https://via.placeholder.com/400x300?text=Image+2',
-  'https://via.placeholder.com/400x300?text=Image+3',
-  'https://via.placeholder.com/400x300?text=Image+4',
+  "https://via.placeholder.com/400x300?text=Image+1", // 임의의 이미지 URL
+  "https://via.placeholder.com/400x300?text=Image+2",
+  "https://via.placeholder.com/400x300?text=Image+3",
+  "https://via.placeholder.com/400x300?text=Image+4",
 ];
 
 const ImageCarousel = () => {
-
-    const imageStyle = {
-       
-        height: '500px', // 원하는 높이 설정
-        objectFit: 'cover', // 이미지가 잘리지 않고 비율 유지
-        
-      };
-
+  const imageStyle = {
+    height: "500px", // 원하는 높이 설정
+    objectFit: "cover", // 이미지가 잘리지 않고 비율 유지
+  };
 
   return (
     <Carousel showThumbs={false}>
-
       {images.map((image, index) => (
-        <div key={index} >
-          <img src={image} alt={`Slide ${index + 1}`} style={imageStyle}/>
+        <div key={index}>
+          <img src={image} alt={`Slide ${index + 1}`} style={imageStyle} />
         </div>
       ))}
     </Carousel>
@@ -32,7 +27,7 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
- 
+
 /* 
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';

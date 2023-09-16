@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom"; // Routes를 import로 변경
-import ProfileTextTool from "./profile_text_tool/ProfileTextTool";
-import ProfileImgClick from "../../ProfileImgClick";
+import ProfileTextTool from "../../profile_image_detail_pages/profile_text_tool/ProfileTextTool";
+import ProfileImgClick from "../../profile_image_detail_pages/ProfileImgDetail";
 import {
   ProfileBoxCss,
   ProfileImgbox,
@@ -9,8 +9,7 @@ import {
   ProfileEdit,
 } from "./ProfileBox.style";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 // Styled component 정의
 
@@ -63,7 +62,7 @@ const ProfileBox = () => {
               cursor: "pointer",
               marginRight: "5px",
             }}
-            onClick={() => navigate('/ProfileEdit')}
+            onClick={() => navigate("/ProfileEdit")}
           />
         </ProfileEdit>
       </div>

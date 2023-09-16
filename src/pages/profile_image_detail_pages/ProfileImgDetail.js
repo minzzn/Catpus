@@ -1,29 +1,11 @@
 import React from "react";
-import ImageCarousel from "../components/ImgCarousel";
+import ImageCarousel from "./ImgCarousel/ImgCarousel";
 import ProfileTextTool from "../components/ProfileTextTool";
-import styled from "styled-components";
-import MobileSize from "../main_layout/main_layout";
-import left from "../assets/left.png";
+import { Box } from "./ProfileImgDetail.style";
+import MobileSize from "../../main_layout/main_layout";
 import { useNavigate } from "react-router-dom";
-import AppBar from "../components/appbar/AppBar";
+import AppBar from "../../components/appbar/AppBar";
 import { FaChevronLeft } from "react-icons/fa";
-
-const Box = styled.div`
-  @media only screen and (min-width: 430px) {
-    width: 365px;
-    margin: auto;
-  }
-
-  @media only screen and (max-width: 430px) {
-    max-width: auto;
-    margin: auto;
-  }
-  display: flex;
-
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-around;
-`;
 
 const ProfileImgClick = () => {
   return (
