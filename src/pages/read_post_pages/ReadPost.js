@@ -1,17 +1,12 @@
-import styled from 'styled-components';
-import left from "../assets/left.png";
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import more from "../assets/more.png"; // more 이미지 import
-import heart from "../assets/heart.png";
-import circle from "../assets/circle.png"
-import Coment from "../components/Coment";
-
+import styled from "styled-components";
+import { useState } from "react";
+import more from "../../assets/more.png";
+import heart from "../../assets/heart.png";
+import circle from "../../assets/circle.png";
+import Coment from "../../components/Coment";
+import AppBar from "../../components/appbar/AppBar";
 
 const ReadPost = () => {
-  const navigate = useNavigate();
-
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -20,14 +15,9 @@ const ReadPost = () => {
 
   return (
     <ReadPostBox>
-      <Header>
-        <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/postwrite')} />
-        집사 수첩
-      </Header>
+      <AppBar str={"집사 수첩"} url={"/postwrite"} />
       <PostTitleContainer>
-        <PostTitle>
-          제목
-        </PostTitle>
+        <PostTitle>제목</PostTitle>
         <DropdownButton onClick={toggleDropdown}>
           <DropdownIcon src={more} alt="더보기 버튼" />
         </DropdownButton>
@@ -39,27 +29,26 @@ const ReadPost = () => {
           </DropdownContent>
         )}
       </PostTitleContainer>
-      <UserName>
-        사용자 이름
-      </UserName>
+      <UserName>사용자 이름</UserName>
       <PostContainer>
-        <PostImg src="https://via.placeholder.com/350x300" alt="logo" class="postimg"/>
+        <PostImg
+          src="https://via.placeholder.com/350x300"
+          alt="logo"
+          class="postimg"
+        />
         <img src={heart} alt="더보기 버튼" />
         <img src={circle} alt="더보기 버튼" />
-        <Heart>
-            좋아요 12개
-        </Heart>
+        <Heart>좋아요 12개</Heart>
         <Detail>
-            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-            내용내용
+          내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+          내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용 내용내용
         </Detail>
       </PostContainer>
-      <Coment/>
+      <Coment />
     </ReadPostBox>
   );
 };
- 
+
 export default ReadPost;
 
 const ReadPostBox = styled.div`
@@ -73,39 +62,19 @@ const ReadPostBox = styled.div`
     margin: auto;
   }
 
-  border: 1px solid #A4A4A4;
+  border: 1px solid #a4a4a4;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-
-`;
-
-
-const Header = styled.div`
-  text-align: center;
-  color: #000;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 15px;
-  margin-right:18px;
 `;
 
 const PostContainer = styled.div`
   padding: 35px 35px 0px 20px;
-  
 `;
-
-const PreviousButton = styled.img`
-  float: left;
-`;
-
 
 const UserName = styled.div`
-  border-bottom: 1px solid #A4A4A4;
+  border-bottom: 1px solid #a4a4a4;
   padding: 5px 15px; /* 상하 여백 5px, 좌우 여백 15px */
   color: #000;
   font-family: Inter;
@@ -116,14 +85,14 @@ const UserName = styled.div`
 `;
 
 const PostTitle = styled.div`
-    padding:10px 15px 0px 15px;
-    color: #000;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}`;
+  padding: 10px 15px 0px 15px;
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
 
 const DropdownButton = styled.button`
   background: none;
@@ -156,36 +125,32 @@ const DropdownContent = styled.div`
   }
 `;
 
-
 const PostTitleContainer = styled.div`
   display: flex;
-border-top: 1px solid #A4A4A4;
+  border-top: 1px solid #a4a4a4;
   justify-content: space-between; /* 제목과 드롭다운 버튼을 오른쪽으로 정렬 */
 `;
 
-const PostImg = styled.img`
-  
-}`;
+const PostImg = styled.img``;
 
 const Heart = styled.div`
-    color: #000;
-    font-family: Inter;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top:5px;
-}`;
+  color: #000;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5px;
+`;
 
 const Detail = styled.div`
-    color: #000;
-    font-family: Inter;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top:5px;
-    margin-bottom:20px;
-    border-bottom:1px solid #A4A4A4;
-}`;
-
+  color: #000;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #a4a4a4;
+`;

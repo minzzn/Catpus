@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MobileSize } from "../../main_layout/main_layout";
 import {
   TitleBox,
   MenuItem,
@@ -11,9 +12,11 @@ import {
   BoardItem,
   BoardItemBox,
   Advertisement,
-  Center,
   CatNameBox,
+  Center,
 } from "./Main.style";
+import logo from "../../assets/Logo.png";
+import AppBar from "../../components/appbar/AppBar";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -73,21 +76,28 @@ const Main = () => {
 
   return (
     <>
-      <Center>
-        <MainContainer>
-          <TitleBox>고양이 프로필</TitleBox>
-          <ItemBox>
-            <HorizontalScrollList items={list} />
-          </ItemBox>
-        </MainContainer>
-        <Advertisement />
-        <MainContainer>
-          <TitleBox>게시판</TitleBox>
-          <ItemBox>
-            <BoardList items={boardList} />
-          </ItemBox>
-        </MainContainer>
-      </Center>
+      <MobileSize>
+        <AppBar
+          str={"침대학교"}
+          url={"/main"}
+          icon={<img src={logo} width={"20px"} alt="logo"></img>}
+        />
+        <Center>
+          <MainContainer>
+            <TitleBox>고양이 프로필</TitleBox>
+            <ItemBox>
+              <HorizontalScrollList items={list} />
+            </ItemBox>
+          </MainContainer>
+          <Advertisement />
+          <MainContainer>
+            <TitleBox>게시판</TitleBox>
+            <ItemBox>
+              <BoardList items={boardList} />
+            </ItemBox>
+          </MainContainer>
+        </Center>
+      </MobileSize>
     </>
   );
 };

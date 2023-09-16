@@ -1,9 +1,11 @@
 import { React, useState, useCallback } from "react";
-import * as P from "./PostList.style";
+// import * as P from "./PostList.style";
 import PostBox from "./components/post_box/PostBox";
 // import Dropdown from 'react-dropdown';
 import DropDown from "./components/dropdown/Dropdown.js";
-import { PostListView, DropdownBox, Center } from "./PostList.style.js";
+import CatpusButton from "../../components/button/CatpusButton";
+import { MobileSize } from "../../main_layout/main_layout";
+import { PostListView, DropdownBox } from "./PostList.style.js";
 
 const PostList = () => {
   const options = ["전체", "고양 2", "고양 3", "고양 4"];
@@ -32,7 +34,7 @@ const PostList = () => {
 
   return (
     <>
-      <Center>
+      <MobileSize>
         <DropdownBox>
           <DropDown data={options} />
         </DropdownBox>
@@ -41,8 +43,8 @@ const PostList = () => {
             <PostBox key={index} data={item} />
           ))}
         </PostListView>
-        <button onClick={addPost}>버튼</button>
-      </Center>
+        <CatpusButton str="작성하기" onClick={console.log("dd")} />
+      </MobileSize>
     </>
   );
 };

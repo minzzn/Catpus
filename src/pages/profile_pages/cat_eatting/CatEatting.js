@@ -1,73 +1,14 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import Modal from "react-modal";
+import {
+  Catmilk,
+  CatmilkCountBox,
+  CatmilkCount1,
+  CatmilkCount2,
+  CatmilkCount3,
+  ModalContent,
+} from "./CatEatting.style";
 import axios from "axios"; // Axios를 import
-
-const Catmilk = styled.div`
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  @media only screen and (min-width: 430px) {
-    width:365px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media only screen and (max-width: 430px) {
-max-width: auto;
-margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-};
-`;
-
-const CatmilkCountBox = styled.div`
-@media only screen and (min-width: 430px) {
-    width:365px;
-    margin: auto;
-}
-
-@media only screen and (max-width: 430px) {
-max-width: auto;
-margin: auto;
-};
-  width: 289px;
-  height: 17px;
-  border: 1px solid #0bc1c1;
-  border-radius: 15px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const CatmilkCount1 = styled.div`
-  width: 84px;
-  height: 9px;
-  border-radius: 15px;
-  border: 1px solid #59d2d2;
-`;
-
-const CatmilkCount2 = styled.div`
-  width: 84px;
-  height: 9px;
-  border-radius: 15px;
-  border: 1px solid #59d2d2;
-`;
-
-const CatmilkCount3 = styled.div`
-  width: 84px;
-  height: 9px;
-  border-radius: 15px;
-  border: 1px solid #59d2d2;
-`;
-
-const ModalContent = styled.div`
-  background-color: white;
-  border-radius: 10px;
-  text-align: center;
-`;
-
-
 
 function CatEatting() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -95,8 +36,8 @@ function CatEatting() {
     setExceedLimitModalOpen(false);
   };
 
-   // 예 버튼 클릭 이벤트 핸들러
-   const handleYesClick = () => {
+  // 예 버튼 클릭 이벤트 핸들러
+  const handleYesClick = () => {
     if (catmilkCount > 2) {
       openExceedLimitModal();
     } else {
@@ -147,12 +88,18 @@ function CatEatting() {
   return (
     <Catmilk>
       <div style={{ fontWeight: "bold", marginBottom: 13 }}>
-       오늘 먹은 츄르 ( {catmilkCount} / 3 )
+        오늘 먹은 츄르 ( {catmilkCount} / 3 )
       </div>
       <CatmilkCountBox style={{ marginBottom: 15 }}>
-        <CatmilkCount1 style={{ backgroundColor: catmilkCount >= 1 ? "#0bc1c1" : "" }} />
-        <CatmilkCount2 style={{ backgroundColor: catmilkCount >= 2 ? "#0bc1c1" : "" }} />
-        <CatmilkCount3 style={{ backgroundColor: catmilkCount === 3 ? "#0bc1c1" : "" }} />
+        <CatmilkCount1
+          style={{ backgroundColor: catmilkCount >= 1 ? "#0bc1c1" : "" }}
+        />
+        <CatmilkCount2
+          style={{ backgroundColor: catmilkCount >= 2 ? "#0bc1c1" : "" }}
+        />
+        <CatmilkCount3
+          style={{ backgroundColor: catmilkCount === 3 ? "#0bc1c1" : "" }}
+        />
       </CatmilkCountBox>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <img
@@ -239,15 +186,19 @@ function CatEatting() {
           <ModalContent>
             {/* 제한 초과 팝업 내용 */}
             <h2>더 이상은 주면 안돼요!</h2>
-            <button onClick={closeExceedLimitModal} 
-             style={{
-                  width: "50px",
-                  height: "22px",
-                  border: "1px solid #0bc1c1",
-                  borderRadius: "15px",
-                  backgroundColor: "#0bc1c1",
-                  color: "white",
-                }}>닫기</button>
+            <button
+              onClick={closeExceedLimitModal}
+              style={{
+                width: "50px",
+                height: "22px",
+                border: "1px solid #0bc1c1",
+                borderRadius: "15px",
+                backgroundColor: "#0bc1c1",
+                color: "white",
+              }}
+            >
+              닫기
+            </button>
           </ModalContent>
         </Modal>
       </div>
