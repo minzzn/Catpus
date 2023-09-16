@@ -17,6 +17,10 @@ export const ReadPostBox = styled.div`
   }
 `;
 
+export const PostContainer = styled.div`
+  padding: 15px;
+`;
+
 export const TitleInput = styled.input`
   color: #a4a4a4;
   font-family: Inter;

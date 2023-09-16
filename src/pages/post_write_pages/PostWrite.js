@@ -9,12 +9,10 @@ import {
   Content,
   PostOption,
   OptionButton,
-  Picture,
   ContentInput,
   Footer,
   CenteredButton,
 } from "./PostWrite.style";
-import image from "../../assets/image.png";
 
 const PostWrite = () => {
   const navigate = useNavigate();

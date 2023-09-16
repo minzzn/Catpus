@@ -1,13 +1,23 @@
 import { React, useState, useCallback } from "react";
-// import * as P from "./PostList.style";
 import PostBox from "./components/post_box/PostBox";
-// import Dropdown from 'react-dropdown';
 import DropDown from "./components/dropdown/Dropdown.js";
 import CatpusButton from "../../components/button/CatpusButton";
 import { MobileSize } from "../../main_layout/main_layout";
 import { PostListView, DropdownBox } from "./PostList.style.js";
+import axios from "axios";
 
 const PostList = () => {
+  axios
+    .get("http://223.130.161.72:8080/")
+    .then((response) => {
+      // 요청 성공 시 실행될 코드
+      console.log(response.data); // 서버 응답 데이터
+    })
+    .catch((error) => {
+      // 요청 실패 시 실행될 코드
+      console.error("에러 발생:", error);
+    });
+
   const options = ["전체", "고양 2", "고양 3", "고양 4"];
 
   const [postList, setPostList] = useState([

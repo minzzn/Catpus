@@ -1,10 +1,8 @@
-import left from "../assets/left.png";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import more from "../assets/more.png"; // more 이미지 import
-import heart from "../assets/heart.png";
-import circle from "../assets/circle.png";
-import Coment from "../components/Coment";
+import more from "../../assets/more.png"; // more 이미지 import
+import heart from "../../assets/heart.png";
+import circle from "../../assets/circle.png";
+import Coment from "../read_post_pages/comment/Coment";
 import AppBar from "../../components/appbar/AppBar";
 import { FaChevronLeft } from "react-icons/fa";
 import {

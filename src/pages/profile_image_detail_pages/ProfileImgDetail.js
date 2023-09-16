@@ -1,9 +1,8 @@
 import React from "react";
 import ImageCarousel from "./ImgCarousel/ImgCarousel";
-import ProfileTextTool from "../components/ProfileTextTool";
+import ProfileTextTool from "../profile_image_detail_pages/profile_text_tool/ProfileTextTool";
 import { Box } from "./ProfileImgDetail.style";
-import MobileSize from "../../main_layout/main_layout";
-import { useNavigate } from "react-router-dom";
+
 import AppBar from "../../components/appbar/AppBar";
 import { FaChevronLeft } from "react-icons/fa";
 

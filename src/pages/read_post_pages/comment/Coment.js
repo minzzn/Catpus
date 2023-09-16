@@ -1,5 +1,3 @@
-// Coment.js (댓글 컴포넌트)
-
 import React, { useState } from "react";
 import {
   ComentContainer,
@@ -8,7 +6,7 @@ import {
   CommentList,
   CommentItem,
   UserName,
-} from "";
+} from "./Comment.style";
 
 const Coment = () => {
   // 댓글 목록을 저장하는 상태와 댓글 입력 필드의 값을 저장하는 상태 정의
