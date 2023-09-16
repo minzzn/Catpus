@@ -31,7 +31,7 @@ const ProfileImgClick = () => {
   return (
     <MobileSize>
     <Header>
-        <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/Profile')} />
+        <PreviousButton src={left} alt="이전페이지 버튼" onClick={() =>  navigate(-1)} />
         사진들
       </Header>
     <ImageCarousel />

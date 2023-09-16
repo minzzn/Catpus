@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import MobileSize from '../main_layout/main_layout';
-
+import { useNavigate } from 'react-router-dom';
 
 const FormContainer = styled.div`
   width: 300px;
@@ -64,6 +64,15 @@ const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #0BC1C1;
+  cursor: pointer;
+  float: right;
+`;
+
 function PetForm() {
   const [formData, setFormData] = useState({
     gender: '',
@@ -71,6 +80,13 @@ function PetForm() {
     personality: '',
     neutered: false,
   });
+
+  const navigate = useNavigate(); // useNavigate를 컴포넌트 내에서 선언
+
+  const handleCloseButtonClick = () => {
+    // 이전 페이지로 이동
+    navigate(-1);
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -92,6 +108,7 @@ function PetForm() {
   return (
     <MobileSize>
     <FormContainer>
+    <CloseButton onClick={handleCloseButtonClick}>x</CloseButton>
       <Title>정보 수정</Title>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
