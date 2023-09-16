@@ -5,16 +5,20 @@ import Login from "./pages/Login";
 import Main from "./pages/Main";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
+import ProfileImgClick from "./pages/ProfileImgClick";
+
 
 
 const App = () =>{
   return(
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Login />}></Route>
-      <Route path='/main' element={<Main />}></Route>
-      <Route path='/signup' element={<SignUp />}></Route>
-      <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/login' element={<Login />}></Route>
+      <Route path='/Main' element={<Main />}></Route>
+      <Route path='/SignUp' element={<SignUp />}></Route>
+      <Route path='/' element={<Profile/>}></Route>
+      <Route path='/ProfileImgClick' element={<ProfileImgClick/>}></Route>
+
     </Routes>
     </BrowserRouter>
   )
