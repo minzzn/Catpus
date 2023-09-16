@@ -21,8 +21,8 @@ import AppBar from "../../components/appbar/AppBar";
 const Main = () => {
   const navigate = useNavigate();
   var list = [
-    { name: "cat1", imageSrc: "https://storage.enuri.info/pic_upload/knowbox2/202210/025533979202210153bb05d98-2e95-4c64-8570-1f1d459e6403.jpg" },
-    { name: "cat2", imageSrc: "https://storage.enuri.info/pic_upload/knowbox2/202210/025533979202210153bb05d98-2e95-4c64-8570-1f1d459e6403.jpg" },
+    { name: "까망이", imageSrc: "https://storage.enuri.info/pic_upload/knowbox2/202210/025533979202210153bb05d98-2e95-4c64-8570-1f1d459e6403.jpg" },
+    { name: "까망이", imageSrc: "https://storage.enuri.info/pic_upload/knowbox2/202210/025533979202210153bb05d98-2e95-4c64-8570-1f1d459e6403.jpg" },
     { name: "cat3", imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Kv5ZqsjUVN6oHP0lsYKZXuoxPgbcklUE0A&usqp=CAU" },
     { name: "cat4", imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIJU4NueLZDK5ZRF9u8Gl2wxoywCfoD_dLQ&usqp=CAU" },
     { name: "cat5", imageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvdXTa1hUOX6RWXXfMKUWshcM9HXezuuCIYA&usqp=CAU" },
