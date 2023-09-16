@@ -76,7 +76,6 @@ export const DropdownContent = styled.div`
 
 export const PostTitleContainer = styled.div`
   display: flex;
-  border-top: 1px solid #a4a4a4;
   justify-content: space-between; /* 제목과 드롭다운 버튼을 오른쪽으로 정렬 */
 `;
 
