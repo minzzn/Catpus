@@ -1,17 +1,42 @@
 import styled from 'styled-components';
 import Logo from '../assets/Logo.png';
 import { useNavigate } from 'react-router-dom';
-import {useState} from 'react'
-import axios from "axios"
+import { useState } from 'react';
+import axios from "axios";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [currentValue, setCurrentValue] = useState("학교 입력");
   const [showOptions, setShowOptions] = useState(false);
+  const [userid, setUserid] = useState('');
+  const [userpassword, setUserpassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [univname, setUnivname] = useState('');
 
   const handleOnChangeSelectValue = (e) => {
-  const { innerText } = e.target;
-  setCurrentValue(innerText);
+    const { innerText } = e.target;
+    setCurrentValue(innerText);
+  };
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      // 여기서 apiUrl을 서버의 실제 엔드포인트로 변경해야 합니다.
+      const response = await axios.post('/api/v1/register', {
+        id: userid,
+        password: userpassword,
+        name: username,
+        univname: univname,
+      });
+
+      console.log(response);
+      alert("회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.");
+      navigate('/');
+    } catch (error) {
+      console.error("회원가입 중 오류 발생:", error);
+      alert("회원가입 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }
   };
 
 
@@ -25,20 +50,28 @@ const SignUp = () => {
         </InputContainer>
         <InputBox>
           <InputName
-            type="Name"
-            id="Name"
+            type='name'
+            id="name"
             placeholder="이름"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <InputId
-            type="email"
-            id="email"
-            placeholder="이메일 또는 아이디"
+            type='id'
+            id="id"
+            placeholder="아이디"
+            value={userid}
+            onChange={(e) => setUserid(e.target.value)}
+            required
           />
           <InputPw
-            type="password"
-            id="password"
+            type='password'
+            id="pw"
             placeholder="비밀번호 입력"
-          />
+            value={userpassword}
+            onChange={(e) => setUserpassword(e.target.value)}
+           />
           <SelectBox onClick={() => setShowOptions((prev) => !prev)}>
             <Label>{currentValue}</Label>
             <SelectOptions show={showOptions}>
@@ -57,6 +90,7 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
 const LoginBox = styled.div`
   @media only screen and (min-width: 430px) {
     width: 365px;
@@ -140,7 +174,7 @@ const SubmitButton = styled.button`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-top: 20px; /* 입력란과 동일한 간격 설정 */
+  margin-top: 30px; /* 입력란과 동일한 간격 설정 */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
