@@ -2,80 +2,64 @@ import styled from 'styled-components';
 import left from "../assets/left.png";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import image from "../assets/image.png"
+import more from "../assets/more.png"; // more 이미지 import
+import heart from "../assets/heart.png";
+import circle from "../assets/circle.png"
+import Coment from "../components/Coment";
+
 
 const ReadPost = () => {
   const navigate = useNavigate();
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
 
-  const handleWriteButtonClick = () => {
-    // 작성하기 버튼을 클릭하면 PostWrite 페이지로 이동
-    navigate('/PostWrite');
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
-
-  const handleOptionButtonClick = (option) => {
-    setSelectedOption(option === selectedOption ? null : option);
-  };
-
-  const handleContentChange = (event) => {
-    setContent(event.target.value);
-  };
-
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
 
   return (
     <ReadPostBox>
       <Header>
-        <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/main')} />
+        <PreviousButton src={left} alt="이전페이지 버튼" onClick={() => navigate('/postwrite')} />
         집사 수첩
       </Header>
+      <PostTitleContainer>
+        <PostTitle>
+          제목
+        </PostTitle>
+        <DropdownButton onClick={toggleDropdown}>
+          <DropdownIcon src={more} alt="더보기 버튼" />
+        </DropdownButton>
+        {isDropdownOpen && (
+          <DropdownContent>
+            {/* 드롭다운 내용을 이곳에 추가하세요 */}
+            <div>삭제하기</div>
+            <div>수정하기</div>
+          </DropdownContent>
+        )}
+      </PostTitleContainer>
+      <UserName>
+        사용자 이름
+      </UserName>
       <PostContainer>
-        <Content>
-          <PostOption>
-            <OptionButton
-              onClick={() => handleOptionButtonClick('치즈냥')}
-              style={{
-                backgroundColor: selectedOption === '치즈냥' ? 'rgba(11, 193, 193, 0.50)' : 'white',
-              }}
-            >
-              치즈냥
-            </OptionButton>
-            <OptionButton
-              onClick={() => handleOptionButtonClick('깜냥이')}
-              style={{
-                backgroundColor: selectedOption === '깜냥이' ? 'rgba(11, 193, 193, 0.50)' : 'white',
-              }}
-            >
-              깜냥이
-            </OptionButton>
-            <OptionButton
-              onClick={() => handleOptionButtonClick('턱시도')}
-              style={{
-                backgroundColor: selectedOption === '턱시도' ? 'rgba(11, 193, 193, 0.50)' : 'white',
-              }}
-            >
-              턱시도
-            </OptionButton>
-            <OptionButton
-              onClick={() => handleOptionButtonClick('삼색이')}
-              style={{
-                backgroundColor: selectedOption === '삼색이' ? 'rgba(11, 193, 193, 0.50)' : 'white',
-              }}
-            >
-              삼색이
-            </OptionButton>
-          </PostOption>
-        </Content>
+        <PostImg src="https://via.placeholder.com/350x300" alt="logo" class="postimg"/>
+        <img src={heart} alt="더보기 버튼" />
+        <img src={circle} alt="더보기 버튼" />
+        <Heart>
+            좋아요 12개
+        </Heart>
+        <Detail>
+            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+            내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+            내용내용
+        </Detail>
       </PostContainer>
+      <Coment/>
     </ReadPostBox>
   );
 };
-
+ 
 export default ReadPost;
 
 const ReadPostBox = styled.div`
@@ -90,7 +74,13 @@ const ReadPostBox = styled.div`
   }
 
   border: 1px solid #A4A4A4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
 `;
+
 
 const Header = styled.div`
   text-align: center;
@@ -101,74 +91,101 @@ const Header = styled.div`
   font-weight: 400;
   line-height: normal;
   padding: 15px;
-  border-bottom: 1px solid #A4A4A4;
+  margin-right:18px;
 `;
 
 const PostContainer = styled.div`
-  padding: 5px;
+  padding: 35px 35px 0px 20px;
+  
 `;
 
 const PreviousButton = styled.img`
   float: left;
 `;
 
-const TitleInput = styled.input`
-  color: #A4A4A4;
+
+const UserName = styled.div`
+  border-bottom: 1px solid #A4A4A4;
+  padding: 5px 15px; /* 상하 여백 5px, 좌우 여백 15px */
+  color: #000;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  padding-bottom: 10px;
-  border:none;
-  width:325px;
-  border-bottom: 1px solid #A4A4A4;
 `;
 
-const Content = styled.div`
-  display: flex;
-  align-items: center;
-  padding-bottom: 10px;
+const PostTitle = styled.div`
+    padding:10px 15px 0px 15px;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}`;
+
+const DropdownButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
 
-const PostOption = styled.div`
+const DropdownIcon = styled.img`
+  font-size: 20px;
+`;
+
+const DropdownContent = styled.div`
+  position: absolute;
+  top: 80px; /* 이미지 바로 아래로 조정 */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  min-width: 50px;
   padding: 10px;
-  border-bottom:1px solid #A4A4A4;
-`;
-
-const OptionButton = styled.button`
-  border-radius: 15px;
-  border: 1px solid #0BC1C1;
-  margin: 5px;
-  color:black;
-`;
-
-const Picture = styled.img`
-  margin-top: 0px;
-  border-right: 1px solid #A4A4A4;
-  margin-right: 5px;
-`;
-
-const ContentInput = styled.textarea`
-  width: 310px;
-  height: 150px; /* Adjust the height as needed */
-  padding: 0px;
-  border: none; /* Remove the border */
-  border-radius: 5px;
-  resize: vertical;
-  margin-top: 10px; /* 변경된 부분 */
-`;
-
-
-const Footer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 330px; /* Adjust this value as needed */
+  flex-direction: column;
+  align-items: flex-start;
+
+  div {
+    margin: 5px 0;
+    cursor: pointer;
+  }
 `;
 
-const CenteredButton = styled.button`
-  border-radius: 15px;
-  background: #59D2D2;
-  color: white;
-  border: 1px solid #59D2D2;
+
+const PostTitleContainer = styled.div`
+  display: flex;
+border-top: 1px solid #A4A4A4;
+  justify-content: space-between; /* 제목과 드롭다운 버튼을 오른쪽으로 정렬 */
 `;
+
+const PostImg = styled.img`
+  
+}`;
+
+const Heart = styled.div`
+    color: #000;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top:5px;
+}`;
+
+const Detail = styled.div`
+    color: #000;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top:5px;
+    margin-bottom:20px;
+    border-bottom:1px solid #A4A4A4;
+}`;
+
