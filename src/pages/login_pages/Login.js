@@ -1,4 +1,4 @@
-import LogoCat from "../../assets/Logo.png";
+import LogoCat from "../../assets/LogoCat.png";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import {
