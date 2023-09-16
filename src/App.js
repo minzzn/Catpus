@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/SignUp" element={<SignUp />}></Route>
         <Route path="/Profile" element={<Profile />}></Route>
         <Route path="/ProfileImgClick" element={<ProfileImgClick />}></Route>
+        <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
       </Routes>
     </BrowserRouter>
   );

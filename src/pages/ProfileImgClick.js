@@ -1,7 +1,12 @@
 import React from "react";
 import ImageCarousel from "../components/ImgCarousel";
-import ProfileTextTool from "./profile_pages/profile_box/profile_text_tool/ProfileTextTool";
+import ProfileTextTool from "../components/ProfileTextTool";
 import styled from "styled-components";
+import MobileSize from "../main_layout/main_layout";
+import left from "../assets/left.png";
+import { useNavigate } from "react-router-dom";
+import AppBar from "../components/appbar/AppBar";
+import { FaChevronLeft } from "react-icons/fa";
 
 const Box = styled.div`
   @media only screen and (min-width: 430px) {
@@ -23,6 +28,7 @@ const Box = styled.div`
 const ProfileImgClick = () => {
   return (
     <Box>
+      <AppBar str={"사진들"} url={"-1"} icon={<FaChevronLeft />} />
       <ImageCarousel />
       <ProfileTextTool />
       <div

@@ -41,7 +41,6 @@ const Coment = () => {
 export default Coment;
 
 const ComentContainer = styled.div`
-  margin-top: 20px;
   margin: 35px;
 `;
 

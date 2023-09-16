@@ -9,11 +9,14 @@ import {
   ProfileEdit,
 } from "./ProfileBox.style";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 
 // Styled component 정의
 
 const ProfileBox = () => {
   const [imageUrls, setImageUrls] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Axios를 사용하여 이미지 URL을 가져오는 요청을 보냅니다.
@@ -60,10 +63,7 @@ const ProfileBox = () => {
               cursor: "pointer",
               marginRight: "5px",
             }}
-            onClick={() => {
-              // 이미지를 클릭했을 때 실행할 함수 또는 이벤트 핸들러를 여기에 추가
-              // 예: 클릭 이벤트 핸들러 함수
-            }}
+            onClick={() => navigate('/ProfileEdit')}
           />
         </ProfileEdit>
       </div>

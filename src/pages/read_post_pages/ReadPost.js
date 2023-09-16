@@ -1,12 +1,15 @@
 import styled from "styled-components";
+import left from "../assets/left.png";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import more from "../../assets/more.png";
-import heart from "../../assets/heart.png";
-import circle from "../../assets/circle.png";
-import Coment from "../../components/Coment";
-import AppBar from "../../components/appbar/AppBar";
+import more from "../assets/more.png"; // more 이미지 import
+import heart from "../assets/heart.png";
+import circle from "../assets/circle.png";
+import Coment from "../components/Coment";
 
 const ReadPost = () => {
+  const navigate = useNavigate();
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -15,7 +18,14 @@ const ReadPost = () => {
 
   return (
     <ReadPostBox>
-      <AppBar str={"집사 수첩"} url={"/postwrite"} />
+      <Header>
+        <PreviousButton
+          src={left}
+          alt="이전페이지 버튼"
+          onClick={() => navigate("/postwrite")}
+        />
+        집사 수첩
+      </Header>
       <PostTitleContainer>
         <PostTitle>제목</PostTitle>
         <DropdownButton onClick={toggleDropdown}>
@@ -69,8 +79,24 @@ const ReadPostBox = styled.div`
   height: 100vh;
 `;
 
+const Header = styled.div`
+  text-align: center;
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 15px;
+  margin-right: 18px;
+`;
+
 const PostContainer = styled.div`
   padding: 35px 35px 0px 20px;
+`;
+
+const PreviousButton = styled.img`
+  float: left;
 `;
 
 const UserName = styled.div`
