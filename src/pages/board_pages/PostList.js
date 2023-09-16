@@ -8,7 +8,7 @@ import axios from "axios";
 
 const PostList = () => {
   axios
-    .get("http://223.130.161.72:8080/")
+    .get("http://223.130.161.72:8080/user/boards/list")
     .then((response) => {
       // 요청 성공 시 실행될 코드
       console.log(response.data); // 서버 응답 데이터

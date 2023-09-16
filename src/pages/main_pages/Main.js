@@ -63,7 +63,7 @@ const Main = () => {
         {items.map((item, index) => (
           <BoardItem
             onClick={() => {
-              navigate(`/pages/ReadPost`);
+              navigate(`/post-list`);
             }}
           >
             <BoardItemBox>{item.boardName}</BoardItemBox>
