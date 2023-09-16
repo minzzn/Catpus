@@ -76,6 +76,7 @@ export const Center = styled.div`
   }
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
   align-items: center;
-  padding: 10px;
 `;

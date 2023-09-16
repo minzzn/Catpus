@@ -42,7 +42,7 @@ const Main = () => {
           //
           <MenuItem
             onClick={() => {
-              navigate(`/cat-info/catname`);
+              navigate(`/profile`);
             }}
           >
             <Image src={item.imageSrc} />

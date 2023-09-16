@@ -192,7 +192,7 @@ const InputName = styled.input`
   font-weight: 700;
   line-height: normal;
   margin-top: 5px;
-}`;
+`;
 
 const LoginSubtitle = styled.div`
   color: #000;
@@ -205,7 +205,7 @@ const LoginSubtitle = styled.div`
   text-align:left;
   margin-left:50px;
   float:left;
-}`;
+`;
 
 const SelectBox = styled.div`
   position: relative;

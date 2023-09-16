@@ -8,18 +8,24 @@ import Profile from "./pages/Profile";
 import PostList from "./pages/board_pages/PostList";
 import ReadPost from "./pages/ReadPost";
 import PostWrite from "./pages/PostWrite";
+import ProfileImgClick from "./pages/ProfileImgClick";
+
+
 
 const App = () =>{
   return(
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Login />}></Route>
-      <Route path='/main' element={<Main />}></Route>
-      <Route path='/signup' element={<SignUp />}></Route>
-      <Route path='/profile' element={<Profile/>}></Route>
+  
       <Route path='/post-list' element={<PostList/>}></Route>
       <Route path='/ReadPost' element={ <ReadPost/>}></Route>
       <Route path='/PostWrite' element={ <PostWrite/>}></Route>
+      <Route path='/' element={<Login />}></Route>
+      <Route path='/Main' element={<Main />}></Route>
+      <Route path='/SignUp' element={<SignUp />}></Route>
+      <Route path='/Profile' element={<Profile/>}></Route>
+      <Route path='/ProfileImgClick' element={<ProfileImgClick/>}></Route>
+
     </Routes>
     </BrowserRouter>
   )
